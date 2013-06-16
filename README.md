@@ -36,8 +36,6 @@ HE IS THEN REDIRECTED TO THE ADMIN CONTROL PANEL WHICH HAS THE FOLLOWING CAPABIL
 ADD/EDIT/DEL USER
 ADD/EDIT/DEL/UPLOAD_INVENTORY_FOR SUPPLIER
 
-====== roles ===================================================
-
+### ROLES
 User, Supplier, Admin
 
-================================================================
