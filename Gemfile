@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
+<<<<<<< HEAD
 ruby "2.0.0"
+=======
+ruby '2.0.0'
+>>>>>>> 0e0edb245d4fef71a0e6792f882eb11b550a8145
 
 gem 'rails', '3.2.13'
 gem 'heroku', "~> 2.39.4"
