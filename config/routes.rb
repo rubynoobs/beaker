@@ -1,9 +1,9 @@
 Beaker::Application.routes.draw do
-  get "static_pages/home"
-
-  get "static_pages/help"
-
-  get "static_pages/search_results"
+  #get "static_pages/home"
+  root :to => 'static_pages#home'
+  
+  match '/static_pages/home', :to => 'static_pages#home'
+  match '/search_results', :to => 'static_pages#search_results'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

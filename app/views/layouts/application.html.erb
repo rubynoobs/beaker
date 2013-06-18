@@ -7,25 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="navbar">
+  <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-      <a class="brand" href="#">Beaker</a>
-      <ul class="nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Features</a></li>
-        <li><a href="#">Pricing</a></li>
-        <li><a href="#">Forums</a></li>
-        <li><a href="#">Searching Tips</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <form class="navbar-form pull-right">      
-        <button type="submit" class="btn btn-primary">Sign in</button>
-      </form>
+      <div class="container">
+        <%= link_to "Beaker Mockup", root_path, class: "brand", id: "logo" %>
+        <ul class="nav">
+          <li class="<%= active_link(root_path) %>"><%= link_to "Home", root_path %></li>
+          <li class="<%= active_link(search_results_path) %>"><%= link_to "Search Results", search_results_path %></li>
+          <li><a href="#">Supplier Page</a></li>
+          <li><a href="#">User Profile</a></li>
+          <li><a href="#">Supplier Profile</a></li>
+          <li><a href="#">Product Page</a></li>
+        </ul>
+        <form class="navbar-form pull-right">      
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+      </div>
     </div>
   </div>
-
-<%= yield %>
+  
+  <div class="container">
+    <ul class="breadcrumb">
+      <li class="active">Home</a> <span class="divider">/</span></li>
+    </ul>
+    <%= yield %>
+  </div>
 
 </body>
 </html>
