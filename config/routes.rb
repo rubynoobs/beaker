@@ -4,6 +4,7 @@ Beaker::Application.routes.draw do
   
   match '/static_pages/home', :to => 'static_pages#home'
   match '/search_results', :to => 'static_pages#search_results'
+  match '/supplier_page', :to => 'static_pages#supplier_page'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
