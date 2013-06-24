@@ -1,9 +1,7 @@
 beaker
 ======
 
-Framework for component searching across multiple suppliers.
-
-[moqup](https://moqups.com/n8_fish/uN9F5hA3/p:a3d970d4d)
+Framework for component searching across multiple suppliers. https://moqups.com/n8_fish/uN9F5hA3
 
 ![Imgur](http://i.imgur.com/TWgMxaX.png)
 
