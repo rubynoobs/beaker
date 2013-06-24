@@ -25,5 +25,4 @@ Interested in Contributing?
 
 - Join us at #rubynoobs on irc.freenode.net
 - Visit our subreddit [r/rubynoobs](http://reddit.com/r/rubynoobs)
-- Contact @patbr0wn or @n8fischer
 - Submit a pull request
