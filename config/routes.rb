@@ -1,4 +1,9 @@
 Beaker::Application.routes.draw do
+  resources :components
+
+
+  devise_for :users
+
   #get "static_pages/home"
   root :to => 'static_pages#home'
   
@@ -6,6 +11,7 @@ Beaker::Application.routes.draw do
   match '/search_results', :to => 'static_pages#search_results'
   match '/supplier_page', :to => 'static_pages#supplier_page'
 
+  devise_for :users
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

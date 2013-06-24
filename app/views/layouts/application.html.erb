@@ -9,18 +9,29 @@
 <body>
   <div class="navbar">
     <div class="navbar-inner">
-      <%= link_to "Beaker", root_path, class: "brand", id: "logo" %>
+      <%= link_to "Beaker", root_path, :class => "brand", :id  => "logo" %>
       <ul class="nav">
         <li class="<%= active_link(root_path) %>"><%= link_to "Home", root_path %></li>
         <li class="<%= active_link(search_results_path) %>"><%= link_to "Search Results", search_results_path %></li>
         <li class="<%= active_link(supplier_page_path) %>"><%= link_to "Supplier Page", supplier_page_path %></li>
         <li><a href="#">User Profile</a></li>
-        <li><a href="#">Supplier Profile</a></li>
-        <li><a href="#">Product Page</a></li>
       </ul>
+      
       <form class="navbar-form pull-right">
-        <input type="text" class="search-query" placeholder="Search...">
-        <button type="submit" class="btn btn-primary">Sign in</button>
+
+      <% if user_signed_in? %>
+
+      <ul class="nav">
+        <li><a href="#"><%= current_user.email %></a></li>
+      </ul>
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "btn" %>
+      
+      <% else %>
+      
+      <%= link_to "Sign in", new_user_session_path,  :type => "button", :class => "btn btn-primary" %>
+      
+      <% end %>
+      
       </form>
     </div>
   </div>
