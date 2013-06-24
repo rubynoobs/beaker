@@ -3,6 +3,10 @@ beaker
 
 Framework for component searching across multiple suppliers.
 
+[moqup](https://moqups.com/n8_fish/uN9F5hA3/p:a3d970d4d)
+
+![Imgur](http://i.imgur.com/TWgMxaX.png)
+
 
 To Do
 -----
@@ -15,3 +19,11 @@ To Do
 - [ ] Admin class
 - [ ] Searchable database by ```part_no```
 - [ ] Tables can be sorted by clicking on table headers
+
+Interested in Contributing?
+---------------------------
+
+- Join us at #rubynoobs on irc.freenode.net
+- Visit our subreddit [r/rubynoobs](http://reddit.com/r/rubynoobs)
+- Contact @patbr0wn or @n8fischer
+- Submit a pull request
