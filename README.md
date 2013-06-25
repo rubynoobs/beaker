@@ -9,6 +9,7 @@ Framework for component searching across multiple suppliers. https://moqups.com/
 To Do
 -----
 
+- [ ] __Write rspec tests__
 - [ ] Component class ```belongs_to supplier```
 - [ ] Supplier class < User ```has_many components```
     - [x] CSV Upload
