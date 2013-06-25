@@ -1,4 +1,20 @@
 Beaker::Application.routes.draw do
+  resources :components do
+    #paths for importing csv
+    collection { post :import }
+  end
+
+  devise_for :users
+
+  #get "static_pages/home"
+  root :to => 'static_pages#home'
+  
+  match '/static_pages/home', :to => 'static_pages#home'
+  match '/search_results', :to => 'static_pages#search_results'
+  match '/supplier_page', :to => 'static_pages#supplier_page'
+
+    
+  devise_for :users
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
