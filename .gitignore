@@ -16,3 +16,9 @@
 
 #Mac OSX 
 .DS_Store
+
+#kde .directory files
+.directory
+
+#Vim swap files
+*.swp

@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Beaker</title>
+  <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <%= link_to "Beaker", root_path, :class => "brand", :id  => "logo" %>
+      <ul class="nav">
+        <li class="<%= active_link(root_path) %>"><%= link_to "Home", root_path %></li>
+        <li class="<%= active_link(components_path) %>"><%= link_to "Browse", components_path %></li>
+        <li class="<%= active_link(supplier_page_path) %>"><%= link_to "Supplier Page", supplier_page_path %></li>
+        <li><a href="#">User Profile</a></li>
+      </ul>
+      
+      <form class="navbar-form pull-right">
 
-<%= yield %>
+      <% if user_signed_in? %>
+
+      <ul class="nav">
+        <li><a href="#"><%= current_user.email %></a></li>
+      </ul>
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "btn" %>
+      
+      <% else %>
+      
+      <%= link_to "Sign in", new_user_session_path,  :type => "button", :class => "btn btn-primary" %>
+      
+      <% end %>
+      
+      </form>
+    </div>
+  </div>
+  
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
