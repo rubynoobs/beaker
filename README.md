@@ -54,5 +54,7 @@ An admin logins to '/admin' and enters valid credentials.
 
 He is then redirected to the admin control panel which has the following capabilities: 
 
-ADD/EDIT/DEL USER
-ADD/EDIT/DEL/UPLOAD_INVENTORY_FOR SUPPLIER
+ - Create/edit/destroy users
+ - Create/edit/destroy components
+ - Create/edit/destroy suppliers
+ - Assign components to suppliers
