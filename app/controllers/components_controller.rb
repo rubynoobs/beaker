@@ -2,12 +2,18 @@ class ComponentsController < ApplicationController
   # GET /components
   # GET /components.json
   def index
-    @components = Component.all
+    @components = Component.order(:part_no)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @components }
+      format.csv { send_data @components.to_csv }
     end
+  end
+
+  def import
+    Component.import(params[:file])
+    redirect_to components_path, notice: "Components successfully imported."
   end
 
   # GET /components/1

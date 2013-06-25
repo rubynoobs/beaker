@@ -14,6 +14,9 @@
   </form>
 </div>
 
+<p>
+  <%= link_to "Download CSV", components_path(format: "csv"), :class => "btn" %>
+<p>
 
 <table class="table table-striped">
   <thead>
@@ -47,4 +50,10 @@
 
 <br />
 
+<h2>Import CSV</h2>
+
+<%= form_tag import_components_path, multipart: true do %>
+  <%= file_field_tag :file, :class => "input" %>
+  <%= submit_tag "Import", :class => "btn btn-primary" %>
+<% end %>
 <%= link_to 'New Component', new_component_path %>
