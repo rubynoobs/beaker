@@ -1,6 +1,6 @@
 class CreateComponents < ActiveRecord::Migration
   def change
-    change_table :components do |t|
+    create_table :components do |t|
       t.decimal :price
       t.string :supplier
       t.integer :rating
@@ -8,3 +8,4 @@ class CreateComponents < ActiveRecord::Migration
     end
   end
 end
+

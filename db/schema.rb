@@ -14,14 +14,9 @@
 ActiveRecord::Schema.define(:version => 20130624053230) do
 
   create_table "components", :force => true do |t|
-    t.string   "part_no"
-    t.integer  "quantity"
-    t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.decimal  "price"
-    t.string   "supplier"
-    t.integer  "rating"
+    t.decimal "price"
+    t.string  "supplier"
+    t.integer "rating"
   end
 
   create_table "users", :force => true do |t|
