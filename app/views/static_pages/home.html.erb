@@ -2,10 +2,12 @@
 
 <div class="hero-unit text-center">
   <img src="/url.png">
-  <form class="form-search">
+
+  <%= form_tag components_path, :method => "get", :class => "form-search" do %>
     <div class="input-append">
-      <input type="text" class="span4 search-query" placeholder="Search zillions of parts...">
-      <button type="submit" class="btn">Search</button>
+      <%= text_field_tag :search, params[:search], :class => "span4 search-query", :placeholder => "Search components..." %>
+      <%= button_tag "Search", :name => nil, :class => "btn" %>
     </div>
-  </form>
+  <% end %>
+
 </div>

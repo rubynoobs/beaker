@@ -1,6 +1,14 @@
 class Component < ActiveRecord::Base
   attr_accessible :description, :part_no, :price, :quantity, :rating, :supplier
 
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['part_no LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names

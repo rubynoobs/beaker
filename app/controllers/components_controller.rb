@@ -2,7 +2,7 @@ class ComponentsController < ApplicationController
   # GET /components
   # GET /components.json
   def index
-    @components = Component.order(:part_no)
+    @components = Component.search(params[:search])
 
     respond_to do |format|
       format.html # index.html.erb
