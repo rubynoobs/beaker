@@ -10,7 +10,6 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'jquery-rails', '2.0.2'
 gem 'devise', '2.2.4'
 gem 'cancan', '1.6.10'
-gem 'fastercsv', '1.5.5'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

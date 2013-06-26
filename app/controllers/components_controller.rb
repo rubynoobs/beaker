@@ -1,3 +1,5 @@
+require 'csv'
+
 class ComponentsController < ApplicationController
   # GET /components
   # GET /components.json
