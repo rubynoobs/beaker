@@ -13,7 +13,7 @@ module ApplicationHelper
   # Checks if link is the active link
   def active_link(link_path)
     if current_page?(link_path)
-      "active"
+      'active'
     end
   end
 

@@ -1,59 +1,65 @@
-<div class="well">
-  <h1>Listing components</h1>
+<div >
+  <% if params[:search] == nil || params[:search] == '' %>
+    <h2>
+      Listing all components.
+    </h2>
+  <% else %>
+    <h2>
+      Listing components that contain "<%= params[:search] %>."
+    </h2>
+  <% end %>
 </div>
 
-<div class="controls-row">
-  <select class="span2">
-    <option>Filter</option>
-  </select>
-  <form class="form-search pull-right">
-    <input type="text" class="span2 search-query" placeholder="Search...">
-    <select class="span2">
-      <option>Options</option>
-    </select>
-  </form>
-</div>
+<% if @components.length == 0 %>
 
-<p>
-  <%= link_to "Download CSV", components_path(format: "csv"), :class => "btn" %>
-<p>
+  <div class="alert alert-error">
+    <strong>Error:</strong> Query returned no results.
+  </div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Part No.</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Description</th>
-      <th>Supplier</th>
-      <th>Rating</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<% else %>
 
-  <tbody>
-<% @components.each do |component| %>
-    <tr>
-      <td><%= link_to component.part_no, component %></td>
-      <td><%= component.quantity %></td>
-      <td><%= number_to_currency(component.price) %></td>
-      <td><%= component.description %></td>
-      <td><%= component.supplier %></td>
-      <td><%= component.rating %></td>
-      <td><%= link_to 'Edit', edit_component_path(component) %></td>
-      <td><%= link_to 'Destroy', component, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+  <p>
+    <%= link_to 'Download CSV', components_path(format: 'csv'), class: 'btn' %>
+  <p>
+
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Part No.</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Supplier</th>
+        <th>Rating</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @components.each do |component| %>
+        <tr>
+          <td><%= link_to component.part_no, component %></td>
+          <td><%= component.quantity %></td>
+          <td><%= number_to_currency(component.price) %></td>
+          <td><%= component.description %></td>
+          <td><%= component.supplier %></td>
+          <td><%= component.rating %></td>
+          <td><%= link_to 'Edit', edit_component_path(component) %></td>
+          <td><%= link_to 'Destroy', component, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
 <% end %>
-  </tbody>
-</table>
 
 <br />
 
 <h2>Import CSV</h2>
 
 <%= form_tag import_components_path, multipart: true do %>
-  <%= file_field_tag :file, :class => "input" %>
-  <%= submit_tag "Import", :class => "btn btn-primary" %>
+  <%= file_field_tag :file, class: 'input' %>
+  <%= submit_tag 'Import', class: 'btn btn-primary' %>
 <% end %>
-<%= link_to 'New Component', new_component_path %>
+<%= link_to 'New Component', new_component_path, class: 'btn' %>

@@ -2,42 +2,58 @@
 <html>
 <head>
   <title><%= full_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <div class="navbar">
+<body style="padding: 60px;">
+  <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-      <%= link_to "Beaker", root_path, :class => "brand", :id  => "logo" %>
-      <ul class="nav">
-        <li class="<%= active_link(root_path) %>"><%= link_to "Home", root_path %></li>
-        <li class="<%= active_link(components_path) %>"><%= link_to "Browse", components_path %></li>
-        <li class="<%= active_link(supplier_page_path) %>"><%= link_to "Supplier Page", supplier_page_path %></li>
-        <li><a href="#">User Profile</a></li>
-      </ul>
+      <%= link_to 'Beaker', root_path, style: 'margin-left: 5px;', class: 'brand', id: 'logo' %>
+      <div class="container">
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="<%= active_link(root_path) %>">
+              <%= link_to "Home", root_path %>
+            </li>
+            <li class="<%= active_link(components_path) %>">
+              <%= link_to "Browse", components_path %>
+            </li>
+            <li class="<%= active_link(supplier_page_path) %>">
+              <%= link_to "Supplier Page", supplier_page_path %>
+            </li>
+          </ul>
+        </div>
       
-      <form class="navbar-form pull-right">
+        <% unless current_page?(root_path) %> 
+          <%= form_tag components_path, method: 'get', class: 'navbar-search pull-left' do %>
+            <%= text_field_tag :search, params[:search], class: 'search-query', placeholder: 'Search components...' %>
+          <% end %>
+        <% end %>
+    
+        <% if user_signed_in? %>
 
-      <% if user_signed_in? %>
-
-      <ul class="nav">
-        <li><a href="#"><%= current_user.email %></a></li>
-      </ul>
-      <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "btn" %>
+          <div class="pull-right"> 
+            <ul class="nav">
+              <li><%= link_to current_user.email, '#' %></li>
+            </ul>
+            <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: 'btn' %>
+          </div>
+        <% else %>
+     
+          <form class="navbar-form pull-right">
+            <%= link_to 'Sign in', new_user_session_path,  type: 'button', class: 'btn btn-primary' %>
+          </form>
       
-      <% else %>
-      
-      <%= link_to "Sign in", new_user_session_path,  :type => "button", :class => "btn btn-primary" %>
-      
-      <% end %>
-      
-      </form>
+        <% end %>
+      </div>
     </div>
   </div>
   
   <div class="container">
+
     <%= yield %>
+  
   </div>
 
 </body>
