@@ -1,6 +1,15 @@
 class Component < ActiveRecord::Base
   attr_accessible :description, :part_no, :price, :quantity, :rating, :supplier
 
+  def initialize part_no, qty, price, desc, supplier, rating
+    @part_no = part_no
+    @quantity = qty
+    @price = price
+    @description = desc
+    @supplier = supplier
+    @rating = rating
+  end
+
   def self.search(search)
     if search
       find(:all, :conditions => ['part_no LIKE ?', "%#{search}%"])

@@ -1,11 +1,19 @@
 require 'spec_helper'
 
-describe "Components" do
-  describe "GET /components" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get components_path
-      response.status.should be(200)
+describe Component do
+
+  before :each do
+    @component = Component.new :part_no, :quantity, :price, "description", :supplier, :rating
+  end
+
+  describe '#new' do
+    it "should create a new component object" do
+      @component.should be_an_instance_of Component  
+    end
+
+    it "should raise exception given too little args" do
+      lambda { @test_args = Component.new }.should raise_exception ArgumentError
     end
   end
+
 end
