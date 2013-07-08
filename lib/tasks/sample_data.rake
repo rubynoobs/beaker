@@ -3,6 +3,7 @@ namespace :db do
 	task populate: :environment do
 		make_users
 		make_components
+		make_suppliers
 	end
 end
 
@@ -23,6 +24,32 @@ def make_users
 end
 
 def make_components
+	50.times do |n|
+		description 		= "Lorem ipsum"
+		part_no 				= "239#{n+1}"
+		price 				= "23.49"
+		quantity 			= "29"
+		rating 				= "3"
+		supplier_name 		= "Nicolas Cage Emporium"
+		supplier_id			= "#{n+1}"
+
+		Component.create!(description: description,
+												part_no: part_no,
+												price: price,
+												quantity: quantity,
+												rating: rating,
+												supplier_name: supplier_name,
+												supplier_id: supplier_id)
+		# suppliers.each { |supplier| supplier.Component.create!(description: description,
+		# 										part_no: part_no,
+		# 										price: price,
+		# 										quantity: quantity,
+		# 										rating: rating,
+		# 										supplier: supplier_name) }
+	end
+end
+
+def make_suppliers
 	50.times do |n|
 		description 		= "Lorem ipsum"
 		part_no 				= "239#{n+1}"
