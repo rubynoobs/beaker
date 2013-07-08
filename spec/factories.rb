@@ -16,9 +16,10 @@ FactoryGirl.define do
 		price		"23.49"
 		quantity	"29"
 		rating	"3"
-		supplier	"Nicolas Cage Emporium"
+		supplier_Name	"Nicolas Cage Emporium"
+		supplier_id "132"
 
-		user
+		# user
 	end
 
 	factory :supplier do

@@ -11,16 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624053230) do
+ActiveRecord::Schema.define(:version => 20130708223115) do
 
   create_table "components", :force => true do |t|
     t.string  "part_no"
     t.integer "quantity"
     t.string  "description"
     t.decimal "price"
-    t.string  "supplier"
+    t.string  "supplier_name"
     t.integer "rating"
+    t.integer "supplier_id"
   end
+
+  add_index "components", ["supplier_id"], :name => "index_components_on_supplier_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

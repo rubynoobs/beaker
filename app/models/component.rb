@@ -1,5 +1,5 @@
 class Component < ActiveRecord::Base
-  attr_accessible :description, :part_no, :price, :quantity, :rating, :supplier
+  attr_accessible :description, :part_no, :price, :quantity, :rating, :supplier_name, :supplier_id
   belongs_to :supplier
 
   validates :supplier_id, presence: true
@@ -8,7 +8,7 @@ class Component < ActiveRecord::Base
   validates :price,       presence: true
   validates :quantity,    presence: true
   validates :rating,      presence: true
-  validates :supplier,    presence: true
+  validates :supplier_name,    presence: true
 
   def self.search(search)
     if search

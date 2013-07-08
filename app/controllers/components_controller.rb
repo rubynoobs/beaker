@@ -4,7 +4,7 @@ class ComponentsController < ApplicationController
   # GET /components
   # GET /components.json
   def index
-    @components = Component.search(params[:search])
+    @component_items = Component.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

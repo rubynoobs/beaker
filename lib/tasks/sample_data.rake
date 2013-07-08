@@ -23,14 +23,27 @@ def make_users
 end
 
 def make_components
-	50.times do
-		# suppliers.each { |supplier| supplier.component.create!(description: description) }
+	50.times do |n|
+		description 		= "Lorem ipsum"
+		part_no 				= "239#{n+1}"
+		price 				= "23.49"
+		quantity 			= "29"
+		rating 				= "3"
+		supplier_name 		= "Nicolas Cage Emporium"
+		supplier_id			= "#{n+1}"
 
-		description 	= "Lorem ipsum"
-		part_no 			= "2398723498"
-		price 			= "23.49"
-		quantity 		= "29"
-		rating 			= "3"
-		supplier 		= "Nicolas Cage Emporium"
+		Component.create!(description: description,
+												part_no: part_no,
+												price: price,
+												quantity: quantity,
+												rating: rating,
+												supplier_name: supplier_name,
+												supplier_id: supplier_id)
+		# suppliers.each { |supplier| supplier.Component.create!(description: description,
+		# 										part_no: part_no,
+		# 										price: price,
+		# 										quantity: quantity,
+		# 										rating: rating,
+		# 										supplier: supplier_name) }
 	end
 end
