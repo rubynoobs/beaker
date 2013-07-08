@@ -1,0 +1,31 @@
+<header class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "Beaker", root_path, id: "logo", class: "brand" %>
+      <nav>
+        <ul class="nav">
+          <li class="<%= active_link(root_path) %>"><%= link_to "Home", root_path %></li>
+          <li class="<%= active_link(components_path) %>"><%= link_to "Browse", components_path %></li>
+          <li class="<%= active_link(supplier_page_path) %>"><%= link_to "Supplier Page", supplier_page_path %></li>
+        </ul>
+        <ul class="nav pull-right">
+          <form class="navbar-form">
+            <% if user_signed_in? %>
+              <li id="fat-menu" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Profile", "#" %></li>
+                  <li><%= link_to "Settings", "#" %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "Sign out", destroy_user_session_path, method: "delete", class: "btn btn-primary" %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to "Sign in", new_user_session_path, class: "btn btn-primary" %></li>
+            <% end %>
+          </form>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
