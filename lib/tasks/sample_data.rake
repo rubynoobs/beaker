@@ -8,16 +8,18 @@ namespace :db do
 end
 
 def make_standard_users
-	admin = User.create!(email: "example@thing.org",
-						 password: "winning11",
-						 password_confirmation: "winning11")
+	admin = User.create!(name: "Example Guy",
+								email: "example@thing.org",
+						 		password: "winning11",
+						 		password_confirmation: "winning11")
 	admin.toggle!(:admin)
 
 	87.times do |n|
 		name 		= Faker::Name.name
 		email 	= "example-#{n+13}@thing.org"
 		password = "password"
-		User.create!(email: email,
+		User.create!(name: name,
+						 email: email,
 					 	 password: password,
 						 password_confirmation: password)
 	end
@@ -25,7 +27,7 @@ end
 
 def make_suppliers
 	12.times do |n|
-		name 		= "Warehouse #{n+1}"
+		name 		= "Nic Cage's Warehouse #{n+1}"
 		email 	= "example-#{n+1}@thing.org"
 		password = "password"
 		supplier = User.create!(email: email,
@@ -40,8 +42,8 @@ def make_suppliers
 			price 				= "23.49"
 			quantity 			= "29"
 			rating 				= "3"
-			supplier_name 		= "Nic Cage's Warehouse #{n+1}"
-			supplier_id			= "#{n+1}"
+			supplier_name 		= name
+			supplier_id			= "#{n}+88"
 
 			Component.create!(description: description,
 									part_no: part_no,
