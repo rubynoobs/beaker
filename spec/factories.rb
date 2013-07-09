@@ -5,9 +5,9 @@ FactoryGirl.define do
 		password						"foobar11"
 		password_confirmation 	"foobar11"
 
-		# factory :admin do
-		# 	admin true
-		# end
+		factory :admin do
+			admin true
+		end
 	end
 
 	factory :component do
@@ -19,7 +19,7 @@ FactoryGirl.define do
 		supplier_Name	"Nicolas Cage Emporium"
 		supplier_id "132"
 
-		# user
+		# supplier
 	end
 
 	factory :supplier do
