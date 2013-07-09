@@ -23,6 +23,9 @@ FactoryGirl.define do
 	end
 
 	factory :supplier do
-
+		name "Nicolas Cage Emporium"
+		overall_rating "B+"
+		description "Lorem ipsum shakeh mah balls. I am your overlord-God Nicolas Cage. 
+						Pay homage to me, mortals."
 	end
 end
