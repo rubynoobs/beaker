@@ -35,7 +35,7 @@ end
 
 def make_components
 	users = User.all(limit: 20)
-	users.each do
+	users.each do |user|
 		5.times do |n|
 			description 		= "Lorem ipsum"
 			part_no 				= "239#{n+1}"
@@ -45,8 +45,7 @@ def make_components
 			supplier_name 		= "Nic Cage's Warehouse #{n+1}"
 			supplier_id			= "#{n+1}"
 
-			# users.each { |user| user.
-				Component.create!(description: description,
+			user.Component.create!(description: description,
 										part_no: part_no,
 										price: price,
 										quantity: quantity,
@@ -57,21 +56,21 @@ def make_components
 	end
 end
 
-def make_suppliers
-	suppliers = User.all(limit: 12)
+# def make_suppliers
+# 	suppliers = User.all(limit: 12)
 
-	20.times do
-		name 						= Faker::Name.name
-		overall_rating			= [A:"A+", B:"B-", C:"C+", D:"C-", E:"B"].sample
-		supplier_description	= Faker::Lorem.sentence(7)
+# 	20.times do
+# 		name 						= Faker::Name.name
+# 		overall_rating			= [A:"A+", B:"B-", C:"C+", D:"C-", E:"B"].sample
+# 		supplier_description	= Faker::Lorem.sentence(7)
 
-		suppliers.each { |supplier| supplier.id.Component.create!(description: component_description,
-																				 part_no: part_no,
-																				 price: price,
-																				 quantity: quantity,
-																				 rating: rating,
-																				 supplier_name: supplier_name,
-																				 supplier_id: supplier.id)
-		supplier.toggle!(:supplier)}
-	end
-end
+# 		suppliers.each { |supplier| supplier.id.Component.create!(description: component_description,
+# 																				 part_no: part_no,
+# 																				 price: price,
+# 																				 quantity: quantity,
+# 																				 rating: rating,
+# 																				 supplier_name: supplier_name,
+# 																				 supplier_id: supplier.id)
+# 		supplier.toggle!(:supplier)}
+# 	end
+# end
