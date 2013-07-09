@@ -1,3 +1,5 @@
 class Supplier < ActiveRecord::Base
-:has_many :components
+	attr_accessible :name, :overall_rating, :description
+	has_many :components, dependent: :destroy
+
 end
