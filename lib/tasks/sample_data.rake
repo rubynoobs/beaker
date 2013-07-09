@@ -1,27 +1,17 @@
 namespace :db do
 	desc "Fill database with sample data"
 	task populate: :environment do
-		make_users
-		make_components
+		make_standard_users
+		make_suppliers
 		# make_suppliers
 	end
 end
 
-def make_users
+def make_standard_users
 	admin = User.create!(email: "example@thing.org",
 						 password: "winning11",
 						 password_confirmation: "winning11")
 	admin.toggle!(:admin)
-
-	12.times do |n|
-		name 		= "Warehouse #{n+1}"
-		email 	= "example-#{n+1}@thing.org"
-		password = "password"
-		supplier = User.create!(email: email,
-					 					password: password,
-					 					password_confirmation: password)
-		supplier.toggle!(:supplier)
-	end
 
 	87.times do |n|
 		name 		= Faker::Name.name
@@ -33,10 +23,18 @@ def make_users
 	end
 end
 
-def make_components
-	users = User.all(limit: 20)
-	users.each do |user|
+def make_suppliers
+	12.times do |n|
+		name 		= "Warehouse #{n+1}"
+		email 	= "example-#{n+1}@thing.org"
+		password = "password"
+		supplier = User.create!(email: email,
+					 					password: password,
+					 					password_confirmation: password)
+		supplier.toggle!(:supplier)
+
 		5.times do |n|
+		
 			description 		= "Lorem ipsum"
 			part_no 				= "239#{n+1}"
 			price 				= "23.49"
@@ -45,13 +43,13 @@ def make_components
 			supplier_name 		= "Nic Cage's Warehouse #{n+1}"
 			supplier_id			= "#{n+1}"
 
-			user.Component.create!(description: description,
-										part_no: part_no,
-										price: price,
-										quantity: quantity,
-										rating: rating,
-										supplier_name: supplier_name,
-										supplier_id: supplier_id)
+			Component.create!(description: description,
+									part_no: part_no,
+									price: price,
+									quantity: quantity,
+									rating: rating,
+									supplier_name: supplier_name,
+									supplier_id: supplier_id)
 		end
 	end
 end
