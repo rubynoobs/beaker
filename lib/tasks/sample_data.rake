@@ -21,7 +21,6 @@ def make_users
 					 					password: password,
 					 					password_confirmation: password)
 		supplier.toggle!(:supplier)
-		# supplier = Component.create!()
 	end
 
 	87.times do |n|
@@ -43,17 +42,17 @@ def make_components
 			price 				= "23.49"
 			quantity 			= "29"
 			rating 				= "3"
-			supplier_name 		= users.name
-			supplier_id			= users.id
+			supplier_name 		= "Nic Cage's Warehouse #{n+1}"
+			supplier_id			= "#{n+1}"
 
 			# users.each { |user| user.
 				Component.create!(description: description,
-													part_no: part_no,
-													price: price,
-													quantity: quantity,
-													rating: rating,
-													supplier_name: supplier_name,
-													supplier_id: supplier_id)
+										part_no: part_no,
+										price: price,
+										quantity: quantity,
+										rating: rating,
+										supplier_name: supplier_name,
+										supplier_id: supplier_id)
 		end
 	end
 end
