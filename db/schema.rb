@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709025200) do
+ActiveRecord::Schema.define(:version => 20130717172421) do
 
   create_table "components", :force => true do |t|
     t.string  "part_no"
@@ -24,14 +24,16 @@ ActiveRecord::Schema.define(:version => 20130709025200) do
   end
 
   create_table "suppliers", :force => true do |t|
-    t.string   "name"
+    t.integer  "user_id"
+    t.string   "supplier_name"
     t.string   "overall_rating"
     t.string   "description"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
 
-  add_index "suppliers", ["name", "overall_rating"], :name => "index_suppliers_on_name_and_overall_rating"
+  add_index "suppliers", ["user_id", "supplier_name"], :name => "index_suppliers_on_user_id_and_supplier_id", :unique => true
+  add_index "suppliers", ["user_id"], :name => "index_suppliers_on_user_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
