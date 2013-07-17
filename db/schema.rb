@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130717174107) do
+ActiveRecord::Schema.define(:version => 20130717174821) do
 
   create_table "components", :force => true do |t|
     t.string  "part_no"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20130717174107) do
     t.decimal "price"
     t.string  "supplier_name"
     t.integer "rating"
-    t.integer "supplier_id"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|
