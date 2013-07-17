@@ -1,14 +1,14 @@
 class Component < ActiveRecord::Base
-  attr_accessible :description, :part_no, :price, :quantity, :rating, :supplier_name, :supplier_id
-  has_one :supplier
+  attr_accessible :description, :part_no, :price, :quantity, :rating
+  belongs_to :user
 
-  validates :supplier_id, presence: true
+  validates :user_id, presence: true
   validates :description, presence: true, length: { maximum: 140 } #------------------
   validates :part_no,     presence: true, length: { maximum: 25 }  # arbitrary numbers; just to manage database size and data viewability
-  validates :price,       presence: true
-  validates :quantity,    presence: true
-  validates :rating,      presence: true
-  validates :supplier_name,    presence: true
+  # validates :price,       presence: true
+  # validates :quantity,    presence: true
+  # validates :rating,      presence: true
+  # validates :supplier_name,    presence: true
 
   def self.search(search)
     if search
