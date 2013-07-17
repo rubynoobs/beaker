@@ -1,6 +1,6 @@
 class Component < ActiveRecord::Base
   attr_accessible :description, :part_no, :price, :quantity, :rating, :supplier_name, :supplier_id
-  belongs_to :supplier
+  has_one :supplier
 
   validates :supplier_id, presence: true
   validates :description, presence: true, length: { maximum: 140 } #------------------
