@@ -33,7 +33,7 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
-    bootstrap-sass (2.3.2.0)
+    bootstrap-sass (2.3.2.1)
       sass (~> 3.2)
     bootstrap-will_paginate (0.0.6)
       will_paginate
@@ -214,7 +214,7 @@ PLATFORMS
 DEPENDENCIES
   annotate (= 2.5.0)
   bcrypt-ruby (= 3.0.1)
-  bootstrap-sass
+  bootstrap-sass (~> 2.3.2.1)
   bootstrap-will_paginate (= 0.0.6)
   cancan (= 1.6.10)
   capybara (= 1.1.2)
