@@ -42,7 +42,7 @@
       <td><%= component.quantity %></td>
       <td><%= number_to_currency(component.price) %></td>
       <td><%= component.description %></td>
-      <td><%= component.supplier_name %></td>
+      <td><%= supplier_name(component.user_id) %></td>
       <td><%= component.rating %></td>
       <td><%= link_to 'Edit', edit_component_path(component) %></td>
       <td><%= link_to 'Destroy', component, method: :delete, data: { confirm: 'Are you sure?' } %></td>
