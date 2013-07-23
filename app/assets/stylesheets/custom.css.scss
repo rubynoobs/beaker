@@ -13,8 +13,8 @@
 input, textarea, select, .undeditable-input {
 	border: 1px solid #bbb;
   	// width: 100%;
-  	padding: 10px;
-  	margin-bottom: 15px;
+  	// padding: 10px;
+  	// margin-bottom: 15px;
   	@include box_sizing;
 }
 
@@ -25,7 +25,7 @@ input {
 #error_explanation {
 	color: #f00;
 	ul {
-		list-style: none;
+		// list-style: none;
 		margin: 0 0 18px 0;
 	}
 }
