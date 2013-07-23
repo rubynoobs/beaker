@@ -8,6 +8,33 @@
 	box-sizing: border-box;
 }
 
+/* forms */
+
+input, textarea, select, .undeditable-input {
+	border: 1px solid #bbb;
+  	// width: 100%;
+  	padding: 10px;
+  	margin-bottom: 15px;
+  	@include box_sizing;
+}
+
+input {
+  	height: auto !important;
+}
+
+#error_explanation {
+	color: #f00;
+	ul {
+		list-style: none;
+		margin: 0 0 18px 0;
+	}
+}
+
+.field_with_errors {
+	@extend .control-group;
+	@extend .error;
+}
+
 /* miscellaneous */
 
 .btn-signin {

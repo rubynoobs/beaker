@@ -1,5 +1,13 @@
-<h1>New component</h1>
+<% provide(:title, 'New Component') %>
+<h1>Create Component</h1>
 
-<%= render 'form' %>
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(@component) do |f| %>
+			<%= render 'form', f:f %>
+			<%= f.submit "Create component", class: "btn btn-large btn-primary actions" %>
+		<% end %>
+	</div>
+</div>
 
 <%= link_to 'Back', components_path %>

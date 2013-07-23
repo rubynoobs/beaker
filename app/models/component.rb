@@ -6,7 +6,6 @@ class Component < ActiveRecord::Base
   validates :description, presence: true, length: { maximum: 140 } #------------------
   validates :part_no,     presence: true, length: { maximum: 25 }  # arbitrary numbers; just to manage database size and data viewability
   validates :price, :quantity, numericality: true
-  # validates :supplier_name,    presence: true
 
   def self.search(search)
     if search

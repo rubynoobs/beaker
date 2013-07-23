@@ -1,6 +1,8 @@
 require 'csv'
 
 class ComponentsController < ApplicationController
+before_filter :authenticate_user!
+
   # GET /components
   # GET /components.json
   def index
@@ -48,7 +50,8 @@ class ComponentsController < ApplicationController
   # POST /components
   # POST /components.json
   def create
-    @component = Component.new(params[:component])
+    # @component = Component.new(params[:component])
+    @component = current_user.components.build(params[:component])
 
     respond_to do |format|
       if @component.save
