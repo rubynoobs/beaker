@@ -10,10 +10,10 @@ To Do
 -----
 
 - [ ] __Write rspec tests__
-- [ ] Component class ```belongs_to supplier```
+- [x] Component class ```belongs_to supplier```
 - [ ] Supplier class < User ```has_many components```
     - [x] CSV Upload
-    - [ ] Editible Supplier Page
+    - [x] Editible Supplier Page
     - [ ] Only Supplier has access to create/edit/destroy their own components
 - [ ] Admin class
 - [ ] Searchable database by ```part_no```
