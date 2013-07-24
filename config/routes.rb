@@ -3,6 +3,7 @@ Beaker::Application.routes.draw do
     #paths for importing csv
     collection { post :import }
   end
+  resources :suppliers
 
   devise_for :users
 
