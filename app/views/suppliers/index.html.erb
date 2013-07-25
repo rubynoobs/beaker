@@ -1,9 +1,11 @@
 <%= provide(:title, 'Supplier List') %>
+<h1>Suppliers</h1>
 
 <dl class="dl-horizontal" id="suppliers">
-	<% @suppliers.each do |supplier| %>
-		<%= render 'supplier', supplier:supplier %>
-	<% end %>
+	<%= render partial: "supplier", collection: @suppliers %>
+	<!-- < @suppliers.each do |supplier| %>
+		<= render 'supplier', supplier:supplier %>
+	< end %> -->
 </dl>
 
 <%= will_paginate %>
