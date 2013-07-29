@@ -14,7 +14,7 @@ gem 'jquery-rails', '2.0.2'
 gem 'holder_rails'
 # gem 'pg', '0.12.2'
 
-gem 'rails_12factor', group: :production
+# gem 'rails_12factor', group: :production
 
 group :development, :test do
 	gem 'sqlite3', '1.3.5'
@@ -48,4 +48,5 @@ end
 
 group :production do
 	gem 'pg', '0.12.2'
+	gem 'rails_12factor'
 end
