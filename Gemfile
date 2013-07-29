@@ -11,6 +11,7 @@ gem 'devise', '2.2.4'
 gem 'cancan', '1.6.10'
 gem 'fastercsv', '1.5.5'
 gem 'jquery-rails', '2.0.2'
+gem 'holder_rails'
 # gem 'pg', '0.12.2'
 
 group :development, :test do
@@ -20,7 +21,7 @@ group :development, :test do
 	gem 'guard-spork', '1.2.0'
 	gem 'childprocess', '0.3.6'
 	gem 'spork', '0.9.2'
-	gem 'holder_rails'
+	# gem 'holder_rails'
 end
 
 # Gems used only for assets and not required
