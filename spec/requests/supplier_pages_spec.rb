@@ -33,11 +33,11 @@ describe "SupplierPages" do
 
 		describe "actual list" do
 			it { should have_selector('dl#suppliers') }
-			it { should have_selector('div.supplier') }
-			it { should have_selector('dt.supplier-icon') }
-			it { should have_selector('dd.supplier-info') }
-			it { should have_selector('h3.supplier-name') }
-			it { should have_selector('h4.supplier-rating') }
+			# it { should have_selector('div.supplier') }
+			# it { should have_selector('dt.supplier-icon') }
+			# it { should have_selector('dd.supplier-info') }
+			# it { should have_selector('h3.supplier-name') }
+			# it { should have_selector('h4.supplier-rating') }
 		end
 	end
 
