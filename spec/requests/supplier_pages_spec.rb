@@ -41,18 +41,19 @@ describe "SupplierPages" do
 		end
 	end
 
-	# describe "Supplier Page" do
-	#   before { visit supplier_page_path }
-	#   let(:page_title) { 'Supplier' }
+	describe "Supplier Page" do
+	  before { visit supplier_page_path }
+	  let(:heading) { '' }
+	  let(:page_title) { 'Supplier' }
 
-	#   it_should_behave_like "all static pages"
+	  it_should_behave_like "all supplier pages"
 
-	#   describe "feedback section(s)" do
-	#    it { should have_selector('section.feedback') }
-	#    it { should have_selector('h4.reviewer-name') }
-	#    it { should have_selector('p.feedback-content') }
-	#    it { should have_selector('h4.rating') }
-	#   end
-	# end
+	  describe "feedback section(s)" do
+	   it { should have_selector('section.feedback') }
+	   it { should have_selector('h4.reviewer-name') }
+	   it { should have_selector('p.feedback-content') }
+	   it { should have_selector('h4.rating') }
+	  end
+	end
 
 end # end page
