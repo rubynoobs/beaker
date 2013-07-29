@@ -6,12 +6,12 @@
         <ul class="nav">
           <li class="<%= active_link(root_path) %>"><%= link_to "Home", root_path %></li>
           <li class="<%= active_link(components_path) %>"><%= link_to "Browse", components_path %></li>
-          <li class="<%= active_link(supplier_page_path) %>"><%= link_to "Supplier Page", suppliers_path %></li>
+          <li class="<%= active_link(suppliers_path) %>"><%= link_to "Supplier Page", suppliers_path %></li>
         </ul>
         <ul class="nav pull-right">
           <div class="btn-group">
             <% if user_signed_in? %>
-              <button class="btn"><%= current_user.email %></button>
+              <button class="btn dropdown-toggle" data-toggle="dropdown"><%= current_user.email %></button>
               <button class="btn dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
               </button>
