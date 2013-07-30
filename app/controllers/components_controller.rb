@@ -51,7 +51,7 @@ before_filter :authenticate_user!
   # POST /components.json
   def create
     # @component = Component.new(params[:component])
-    @component = current_user.components.build(params[:component])
+    @component = current_user.components.build(component_params)
 
     respond_to do |format|
       if @component.save
@@ -70,7 +70,7 @@ before_filter :authenticate_user!
     @component = Component.find(params[:id])
 
     respond_to do |format|
-      if @component.update_attributes(params[:component])
+      if @component.update_attributes(component_params)
         format.html { redirect_to @component, notice: 'Component was successfully updated.' }
         format.json { head :no_content }
       else
@@ -91,4 +91,9 @@ before_filter :authenticate_user!
       format.json { head :no_content }
     end
   end
-end
+
+  private
+    def component_params
+      params.require(:component).permit(:description, :part_no, :price, :quantity, :rating)
+    end
+end # end file

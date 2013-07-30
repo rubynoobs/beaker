@@ -1,5 +1,4 @@
 module ComponentsHelper
-
 	#Returns the full title on a per-page basis.
 	def supplier_name(user_id)
 
