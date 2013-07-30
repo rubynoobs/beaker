@@ -1,6 +1,8 @@
 require 'csv'
 
 class ComponentsController < ApplicationController
+before_filter :authenticate_user!
+
   # GET /components
   # GET /components.json
   def index
@@ -48,7 +50,8 @@ class ComponentsController < ApplicationController
   # POST /components
   # POST /components.json
   def create
-    @component = Component.new(params[:component])
+    # @component = Component.new(params[:component])
+    @component = current_user.components.build(component_params)
 
     respond_to do |format|
       if @component.save
@@ -67,7 +70,7 @@ class ComponentsController < ApplicationController
     @component = Component.find(params[:id])
 
     respond_to do |format|
-      if @component.update_attributes(params[:component])
+      if @component.update_attributes(component_params)
         format.html { redirect_to @component, notice: 'Component was successfully updated.' }
         format.json { head :no_content }
       else
@@ -88,4 +91,9 @@ class ComponentsController < ApplicationController
       format.json { head :no_content }
     end
   end
-end
+
+  private
+    def component_params
+      params.require(:component).permit(:description, :part_no, :price, :quantity, :rating)
+    end
+end # end file
