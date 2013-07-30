@@ -1,0 +1,10 @@
+<div class="supplier">
+	<dt class="supplier-icon">
+		<a href="<%= supplier_path(supplier) %>" ><%= holder_tag '115x115', 'Supplier Logo', 'gray', :id => supplier.id, :class => 'supplier-logo' %></a>
+	</dt>
+	<dd>&nbsp;</dd>
+	<dd class="supplier-info">
+		<h3 class="supplier-name"><%= link_to supplier.name.to_s.humanize, supplier_path(supplier) %></h3>
+		<h4 class="supplier-rating"><span class="muted">Overall Rating:</span> <span class="text-warning">C+</span></h4>
+	</dd>
+</div>
